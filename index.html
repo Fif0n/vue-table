@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Tabela z filtrem i sortowaniem</title>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+      <!-- Bootstrap działa standardowo z jQuery, ta wersja biblioteki integruje BS z VUE: -->
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+  </head>
+
+  <body>
+    <h1>Tabela reaktywna VUE</h1>
+     
+    <div id="app">
+      <b-container><!-- Kontener Bootstrap-->
+        <b-form-group horizontal label="Filtrowanie tabeli" class="mb-0">
+            <b-input-group>
+                <b-form-input v-model="filter" placeholder="Czego szukasz?" />
+            </b-input-group>
+          </b-form-group>    
+         <template>
+             <b-table striped hover
+                      :items="items"
+                      :fields="fields"
+                      :filter="filter"
+                      @row-clicked="rowClickHandler"
+                    >
+             </b-table>
+          </template>
+          <b-button variant="primary" v-b-modal.add-employee>Dodaj pracownika</b-button>
+          <b-modal id="add-employee">
+            <b-form>
+              <b-form-input>
+                
+              </b-form-input>
+              <b-form-input>
+
+              </b-form-input>
+              <b-form-input>
+
+              </b-form-input>
+              <b-form-input>
+
+              </b-form-input>
+              <b-button></b-button>
+            </b-form>
+          </b-modal>
+        </b-container>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+    </body>
+</html>
